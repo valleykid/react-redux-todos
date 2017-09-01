@@ -5,7 +5,7 @@ import { create } from 'react-magic-component'
 // AddTodo
 create('AddTodo', {
   connect: connect(),
-  events: {
+  props: {
     'onSubmit form': function(e) {
       e.preventDefault()
       let input = global.input;
@@ -43,7 +43,7 @@ const mapDispatchToPropsForTodoList = {
 
 create('TodoList', {
   connect: connect(mapStateToPropsForTodoList, mapDispatchToPropsForTodoList),
-  events: {
+  props: {
     'onClick li': function(e, props) {
       this.props.onTodoClick(props.id);
     }
@@ -64,7 +64,7 @@ const mapDispatchToPropsForLink = (dispatch, ownProps) => ({
 
 create('Link', {
   connect: connect(mapStateToPropsForLink, mapDispatchToPropsForLink),
-  events: {
+  props: {
     'onClick a': function(e) {
       e.preventDefault();
       this.props.onClick();
